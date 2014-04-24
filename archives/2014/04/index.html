@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: Linux | Piekill</title>
+  <title>Archives: 2014/4 | Piekill</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="og:type" content="blog">
 <meta name="og:title">
-<meta name="og:url" content="http://piekill.github.io/tags/Linux/">
+<meta name="og:url" content="http://piekill.github.io/archives/2014/04/">
 <meta name="og:image">
 <meta name="og:site_name" content="Piekill">
 <meta name="og:description">
@@ -63,14 +63,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-tips-for-setting-up-fedora" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-dont-forget-how-to-hexo" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/01/22/tips-for-setting-up-fedora/" class="article-date">
-  <time datetime="2014-01-22T15:51:04.000Z" itemprop="datePublished">1月 22 2014</time>
+    <a href="/2014/04/24/dont-forget-how-to-hexo/" class="article-date">
+  <time datetime="2014-04-24T23:29:02.000Z" itemprop="datePublished">4月 24 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Linux Settings/">Linux Settings</a>
+    <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
   </div>
 
   </div>
@@ -81,7 +81,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/01/22/tips-for-setting-up-fedora/">Tips for Setting up Fedora</a>
+      <a class="article-title" href="/2014/04/24/dont-forget-how-to-hexo/">Don&#39;t forget how to hexo</a>
     </h1>
   
 
@@ -89,78 +89,52 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>For Thunderbird:</p>
-<p>The server for my current mail in CS is <code>mail.cs.stonybrook.edu</code> for both <em>imap</em> and <em>smpt</em>. Ports are 993 and 587. Types of security are SSL/TLS and STARTTLS. Settings are the same for the university mail except that the servers becomes <code>smtp|imag.gmail.com</code>. Don&#39;t forget to use full address for the user name.
-
-        
-          <p class="article-more-link">
-            <a href="/2014/01/22/tips-for-setting-up-fedora/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://piekill.github.io/2014/01/22/tips-for-setting-up-fedora/" data-id="rua11rgyej4gdjeh" class="article-share-link">Share</a>
-      
-        <a href="http://piekill.github.io/2014/01/22/tips-for-setting-up-fedora/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Fedora/">Fedora</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-install-nvidia-driver-on-linux(fedora)" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/01/22/install-nvidia-driver-on-linux(fedora)/" class="article-date">
-  <time datetime="2014-01-22T15:16:44.000Z" itemprop="datePublished">1月 22 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Linux Settings/">Linux Settings</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/01/22/install-nvidia-driver-on-linux(fedora)/">Install Nvidia driver on Linux(fedora)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Since <em>Nouveau</em> is typically used by default, the first thing to do after you download the driver from Nvidia is to disable Nouveau. This can be done by adding the following line to <code>/etc/modprobe.d/blacklist.conf</code></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>blacklist nouveau
+        <h2 id="hexo">Hexo</h2>
+<ol>
+<li><p>Writing</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre> $ hexo <span class="keyword">new</span> [layout] &lt;title&gt;
+</pre></td></tr></table></figure>
+</li>
+<li><p>Generating</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="variable">$ </span>hexo generate
+</pre></td></tr></table></figure>
+</li>
+<li><p>Deployment </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="variable">$ </span>hexo deploy
 </pre></td></tr></table></figure>
 
-<p>However, you may have the Nouveau driver worked into your root filesystem (initramfs),
+</li>
+</ol>
+<p>Or deploy after generating</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ hexo <span class="keyword">generate</span> <span class="comment">--deploy</span>
+</pre></td></tr></table></figure>
 
-        
-          <p class="article-more-link">
-            <a href="/2014/01/22/install-nvidia-driver-on-linux(fedora)/#more">Read More</a>
-          </p>
-        
+<h2 id="markdown">Markdown</h2>
+<ul>
+<li>&quot;#&quot;s: captions</li>
+<li>&quot; <em> &quot;and&quot; *</em> &quot;: italic and bold</li>
+<li>&quot; * &quot;,&quot; + &quot;, &quot; - &quot; or &quot;1,2,3...&quot;: lists</li>
+<li>&quot; ```language &quot;: code</li>
+<li>&quot; &#39; code &#39; &quot;: inline code</li>
+<li>&quot;Tags&quot; and &quot;Catagories&quot;</li>
+<li>&quot; \$ &quot; and &quot; $$ &quot;: latex math</li>
+<li>&quot;[text](link)&quot;: hyperlink</li>
+<li>&quot;>&quot;: text reference</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://piekill.github.io/2014/01/22/install-nvidia-driver-on-linux(fedora)/" data-id="51s1m569g17mqa08" class="article-share-link">Share</a>
+      <a data-url="http://piekill.github.io/2014/04/24/dont-forget-how-to-hexo/" data-id="6sta0ia71bsd7i8w" class="article-share-link">Share</a>
       
-        <a href="http://piekill.github.io/2014/01/22/install-nvidia-driver-on-linux(fedora)/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://piekill.github.io/2014/04/24/dont-forget-how-to-hexo/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nvidia driver/">Nvidia driver</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
 
     </footer>
   </div>
