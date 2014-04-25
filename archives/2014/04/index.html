@@ -63,6 +63,157 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-setting-up-hadoop-(fedora-linux)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/04/24/setting-up-hadoop-(fedora-linux)/" class="article-date">
+  <time datetime="2014-04-25T00:05:49.000Z" itemprop="datePublished">4月 24 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hadoop/">Hadoop</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/04/24/setting-up-hadoop-(fedora-linux)/">Setting up Hadoop (fedora-linux)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="choose-your-way-of-installation">Choose your way of installation</h2>
+<p>There are actually two ways of installing Hadoop:</p>
+<ul>
+<li>Download source code and compile it;</li>
+<li>Download distribution and use it.
+The problem of the 2nd approach is that the pre-compiled distribution is a 
+32-bit version, and it generates a warning every time a command is executed 
+when running on a 64-bit machine. But generally you would get into much more 
+troubles if you try to compile from the source code. So here we use the 2nd 
+approach and just ignore the warnings. The distribution can be downloaded from 
+<a href="http://hadoop.apache.org" target="_blank">hadoop&#39;s website</a>. In case you want to access API 
+docs in an IDE such as eclipse, you can also download the source code and 
+attach it to appropriate packages.</li>
+</ul>
+<h2 id="hadoop-2-2-0-installation">Hadoop 2.2.0 installation</h2>
+<p>Installing Hadoop in a standalone mode is trivial, while installing in a 
+fully-distributed mode requires several machines. Here we consider the 
+procedure of installing in a pseudo-distributed mode, which basically follows 
+the instructions from the official document.</p>
+<ol>
+<li><strong>Configuration</strong></li>
+</ol>
+<p>Edit <code>etc/hadoop/core-site.xml</code>:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">configuration</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">property</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="title">name</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">value</span>&gt;</span>hdfs://localhost:9000<span class="tag">&lt;/<span class="title">value</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">property</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+<p>Edit <code>etc/hadoop/hdfs-site.xml</code>:</p>
+<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+</configuration>
+
+<ol>
+<li><strong>Setup ssh connection without password</strong></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="variable">$ </span>ssh-keygen -t dsa -<span class="constant">P</span> <span class="string">''</span> -f ~<span class="regexp">/.ssh/id</span>_dsa
+<span class="variable">$ </span>cat ~<span class="regexp">/.ssh/id</span>_dsa.pub &gt;&gt; ~<span class="regexp">/.ssh/authorized</span>_keys
+<span class="variable">$ </span>chmod <span class="number">600</span> ~<span class="regexp">/.ssh/authorized</span>_keys
+</pre></td></tr></table></figure>
+
+<p>Edit <code>/etc/ssh/sshd_config</code>: change <code>PasswordAuthentication</code> to <code>no</code></p>
+<ol>
+<li><strong>Setup the environment</strong>
+You can edit <code>etc/hadoop/hadoop-env.sh</code>, but here we choose to modify 
+<code>~/.bashrc</code> and add the following lines:<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="keyword">export</span> JAVA_HOME=<span class="string">"your java installation location"</span>
+<span class="keyword">export</span> HADOOP_HOME=<span class="string">"your hadoop installation location"</span>
+<span class="keyword">export</span> HADOOP_COMMON_LIB_NATIVE_DIR=<span class="variable">$HADOOP_HOME</span>/lib/native
+<span class="keyword">export</span> HADOOP_OPTS=<span class="string">"-Djava.library.path=<span class="variable">$HADOOP_HOME</span>/lib"</span>
+</pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>The <code>JAVA_HOME</code> for Fedora (JDK version 1.7.0) is something 
+like <code>/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.60-2.4.5.1.fc20.x86_64</code>.</p>
+<p>Don&#39;t forget to <code>source ~/.bashrc</code> after editing.</p>
+<ol>
+<li><strong>Execution and testing</strong></li>
+<li><p>Format the filesystem:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="variable">$ </span>bin/hdfs namenode -format
+</pre></td></tr></table></figure>
+</li>
+<li><p>Start namenode and datanode:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="variable">$ </span>sbin/start-dfs.sh
+</pre></td></tr></table></figure>
+</li>
+<li><p>You can browse the web interface at <code>http://localhost:50070</code> by default.</p>
+</li>
+<li>Run some examples (see Hadoop docs for details).</li>
+</ol>
+<h2 id="hadoop-in-eclipse">Hadoop in Eclipse</h2>
+<p>There are several ways of integrating Hadoop into Eclipse. We again choose the 
+easiest one: <a href="https://github.com/winghc/hadoop2x-eclipse-plugin">hadoop eclipse 
+plugin</a>. You can build from 
+the source or use the release version if you are working on Hadoop 2.2.0 and 
+Eclipse Kepler. Then you can simply create a new Map/Reduce Project in Eclipse, 
+add a Map/Reduce Location, and run examples such as WordCount. By default, the 
+input and output files locate on local filesystem. Modify the configuration as 
+follows to run it on HDFS:</p>
+<figure class="highlight Java"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>Configuration conf = <span class="keyword">new</span> Configuration();
+conf.set(<span class="string">"fs.defaultFS"</span>,<span class="string">"your_hdfs_location"</span>);
+</pre></td></tr></table></figure>
+
+<p>By default, <code>your_hdfs_location</code> is <code>hdfs://localhost:9000</code>.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://piekill.github.io/2014/04/24/setting-up-hadoop-(fedora-linux)/" data-id="vxrkeplezi4fr8c7" class="article-share-link">Share</a>
+      
+        <a href="http://piekill.github.io/2014/04/24/setting-up-hadoop-(fedora-linux)/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Fedora/">Fedora</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-dont-forget-how-to-hexo" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/04/24/dont-forget-how-to-hexo/" class="article-date">
@@ -112,7 +263,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://piekill.github.io/2014/04/24/dont-forget-how-to-hexo/" data-id="nw5szlwl7zg0y44c" class="article-share-link">Share</a>
+      <a data-url="http://piekill.github.io/2014/04/24/dont-forget-how-to-hexo/" data-id="xoj4p1a0a82b63ph" class="article-share-link">Share</a>
       
         <a href="http://piekill.github.io/2014/04/24/dont-forget-how-to-hexo/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -135,7 +286,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux Settings/">Linux Settings</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hadoop/">Hadoop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hadoop/">Hadoop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hadoop/">Hadoop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux Settings/">Linux Settings</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -144,7 +295,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fedora/">Fedora</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nvidia driver/">Nvidia driver</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fedora/">Fedora</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hadoop/">Hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nvidia driver/">Nvidia driver</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -153,7 +304,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Fedora/" style="font-size: 10.00px;">Fedora</a><a href="/tags/Hexo/" style="font-size: 10.00px;">Hexo</a><a href="/tags/Linux/" style="font-size: 20.00px;">Linux</a><a href="/tags/Nvidia driver/" style="font-size: 10.00px;">Nvidia driver</a>
+      <a href="/tags/Fedora/" style="font-size: 15.00px;">Fedora</a><a href="/tags/Hadoop/" style="font-size: 10.00px;">Hadoop</a><a href="/tags/Hexo/" style="font-size: 10.00px;">Hexo</a><a href="/tags/Linux/" style="font-size: 20.00px;">Linux</a><a href="/tags/Nvidia driver/" style="font-size: 10.00px;">Nvidia driver</a>
     </div>
   </div>
 
@@ -162,7 +313,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04">四月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01">一月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04">四月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01">一月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -172,6 +323,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/04/24/setting-up-hadoop-(fedora-linux)/">Setting up Hadoop (fedora-linux)</a>
+          </li>
         
           <li>
             <a href="/2014/04/24/dont-forget-how-to-hexo/">Don&#39;t forget how to hexo</a>

@@ -3,15 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tips for Setting up Fedora | Piekill</title>
+  <title>Category: Hadoop | Piekill</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="og:type" content="blog">
-<meta name="og:title" content="Tips for Setting up Fedora">
-<meta name="og:url" content="http://piekill.github.io/2014/01/22/tips-for-setting-up-fedora/">
+<meta name="og:title">
+<meta name="og:url" content="http://piekill.github.io/categories/Hadoop/">
 <meta name="og:image">
 <meta name="og:site_name" content="Piekill">
-<meta name="og:description" content="For Thunderbird:
-The server for my current mail in CS is mail.cs.stonybrook.edu for both imap and smpt. Ports are 993 and 587. Types of security are SSL/TLS and STARTTLS. Settings are the same for the">
+<meta name="og:description">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Piekill" type="application/atom+xml">
@@ -62,14 +61,16 @@ The server for my current mail in CS is mail.cs.stonybrook.edu for both imap and
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-tips-for-setting-up-fedora" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main">
+  
+    <article id="post-setting-up-hadoop-(fedora-linux)" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/01/22/tips-for-setting-up-fedora/" class="article-date">
-  <time datetime="2014-01-22T15:51:04.000Z" itemprop="datePublished">1月 22 2014</time>
+    <a href="/2014/04/24/setting-up-hadoop-(fedora-linux)/" class="article-date">
+  <time datetime="2014-04-25T00:05:49.000Z" itemprop="datePublished">4月 24 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Linux Settings/">Linux Settings</a>
+    <a class="article-category-link" href="/categories/Hadoop/">Hadoop</a>
   </div>
 
   </div>
@@ -79,8 +80,8 @@ The server for my current mail in CS is mail.cs.stonybrook.edu for both imap and
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      Tips for Setting up Fedora
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/04/24/setting-up-hadoop-(fedora-linux)/">Setting up Hadoop (fedora-linux)</a>
     </h1>
   
 
@@ -88,69 +89,132 @@ The server for my current mail in CS is mail.cs.stonybrook.edu for both imap and
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>For Thunderbird:</p>
-<p>The server for my current mail in CS is <code>mail.cs.stonybrook.edu</code> for both <em>imap</em> and <em>smpt</em>. Ports are 993 and 587. Types of security are SSL/TLS and STARTTLS. Settings are the same for the university mail except that the servers becomes <code>smtp|imag.gmail.com</code>. Don&#39;t forget to use full address for the user name.
-<a id="more"></a></p>
-<p>For cude:</p>
-<p>Remember the <code>-override compiler</code> option when running the <em>run</em> file. RPM installation doesn&#39;t work for me very well since it replaces the current driver without asking me.</p>
-<p>A list of packages(software):</p>
+        <h2 id="choose-your-way-of-installation">Choose your way of installation</h2>
+<p>There are actually two ways of installing Hadoop:</p>
 <ul>
-<li>matlab</li>
-<li>nvidia driver</li>
-<li>chrome</li>
-<li>kile</li>
-<li>thunderbird</li>
-<li>vim-enhanced</li>
-<li>icedtea</li>
-<li>rpm-fusion</li>
-<li>dropbox</li>
-<li>gcc-c++</li>
-<li>fcitx &amp; im-chooser</li>
-<li>node.js &amp; hexo</li>
+<li>Download source code and compile it;</li>
+<li>Download distribution and use it.
+The problem of the 2nd approach is that the pre-compiled distribution is a 
+32-bit version, and it generates a warning every time a command is executed 
+when running on a 64-bit machine. But generally you would get into much more 
+troubles if you try to compile from the source code. So here we use the 2nd 
+approach and just ignore the warnings. The distribution can be downloaded from 
+<a href="http://hadoop.apache.org" target="_blank">hadoop&#39;s website</a>. In case you want to access API 
+docs in an IDE such as eclipse, you can also download the source code and 
+attach it to appropriate packages.</li>
 </ul>
+<h2 id="hadoop-2-2-0-installation">Hadoop 2.2.0 installation</h2>
+<p>Installing Hadoop in a standalone mode is trivial, while installing in a 
+fully-distributed mode requires several machines. Here we consider the 
+procedure of installing in a pseudo-distributed mode, which basically follows 
+the instructions from the official document.</p>
+<ol>
+<li><strong>Configuration</strong></li>
+</ol>
+<p>Edit <code>etc/hadoop/core-site.xml</code>:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">configuration</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">property</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="title">name</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">value</span>&gt;</span>hdfs://localhost:9000<span class="tag">&lt;/<span class="title">value</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">property</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+<p>Edit <code>etc/hadoop/hdfs-site.xml</code>:</p>
+<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+</configuration>
+
+<ol>
+<li><strong>Setup ssh connection without password</strong></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="variable">$ </span>ssh-keygen -t dsa -<span class="constant">P</span> <span class="string">''</span> -f ~<span class="regexp">/.ssh/id</span>_dsa
+<span class="variable">$ </span>cat ~<span class="regexp">/.ssh/id</span>_dsa.pub &gt;&gt; ~<span class="regexp">/.ssh/authorized</span>_keys
+<span class="variable">$ </span>chmod <span class="number">600</span> ~<span class="regexp">/.ssh/authorized</span>_keys
+</pre></td></tr></table></figure>
+
+<p>Edit <code>/etc/ssh/sshd_config</code>: change <code>PasswordAuthentication</code> to <code>no</code></p>
+<ol>
+<li><strong>Setup the environment</strong>
+You can edit <code>etc/hadoop/hadoop-env.sh</code>, but here we choose to modify 
+<code>~/.bashrc</code> and add the following lines:<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="keyword">export</span> JAVA_HOME=<span class="string">"your java installation location"</span>
+<span class="keyword">export</span> HADOOP_HOME=<span class="string">"your hadoop installation location"</span>
+<span class="keyword">export</span> HADOOP_COMMON_LIB_NATIVE_DIR=<span class="variable">$HADOOP_HOME</span>/lib/native
+<span class="keyword">export</span> HADOOP_OPTS=<span class="string">"-Djava.library.path=<span class="variable">$HADOOP_HOME</span>/lib"</span>
+</pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>The <code>JAVA_HOME</code> for Fedora (JDK version 1.7.0) is something 
+like <code>/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.60-2.4.5.1.fc20.x86_64</code>.</p>
+<p>Don&#39;t forget to <code>source ~/.bashrc</code> after editing.</p>
+<ol>
+<li><strong>Execution and testing</strong></li>
+<li><p>Format the filesystem:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="variable">$ </span>bin/hdfs namenode -format
+</pre></td></tr></table></figure>
+</li>
+<li><p>Start namenode and datanode:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="variable">$ </span>sbin/start-dfs.sh
+</pre></td></tr></table></figure>
+</li>
+<li><p>You can browse the web interface at <code>http://localhost:50070</code> by default.</p>
+</li>
+<li>Run some examples (see Hadoop docs for details).</li>
+</ol>
+<h2 id="hadoop-in-eclipse">Hadoop in Eclipse</h2>
+<p>There are several ways of integrating Hadoop into Eclipse. We again choose the 
+easiest one: <a href="https://github.com/winghc/hadoop2x-eclipse-plugin">hadoop eclipse 
+plugin</a>. You can build from 
+the source or use the release version if you are working on Hadoop 2.2.0 and 
+Eclipse Kepler. Then you can simply create a new Map/Reduce Project in Eclipse, 
+add a Map/Reduce Location, and run examples such as WordCount. By default, the 
+input and output files locate on local filesystem. Modify the configuration as 
+follows to run it on HDFS:</p>
+<figure class="highlight Java"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>Configuration conf = <span class="keyword">new</span> Configuration();
+conf.set(<span class="string">"fs.defaultFS"</span>,<span class="string">"your_hdfs_location"</span>);
+</pre></td></tr></table></figure>
+
+<p>By default, <code>your_hdfs_location</code> is <code>hdfs://localhost:9000</code>.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://piekill.github.io/2014/01/22/tips-for-setting-up-fedora/" data-id="h65tofr1d8mhnh7a" class="article-share-link">Share</a>
+      <a data-url="http://piekill.github.io/2014/04/24/setting-up-hadoop-(fedora-linux)/" data-id="vxrkeplezi4fr8c7" class="article-share-link">Share</a>
       
-        <a href="http://piekill.github.io/2014/01/22/tips-for-setting-up-fedora/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://piekill.github.io/2014/04/24/setting-up-hadoop-(fedora-linux)/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Fedora/">Fedora</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Fedora/">Fedora</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
 
     </footer>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/2014/04/24/dont-forget-how-to-hexo/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Don&#39;t forget how to hexo
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2014/01/22/install-nvidia-driver-on-linux(fedora)/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Install Nvidia driver on Linux(fedora)</div>
-    </a>
-  
-</nav>
-
-  
 </article>
 
 
-<section id="comments">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</section>
+  
+  
 </section>
         
           <aside id="sidebar">
@@ -246,13 +310,11 @@ The server for my current mail in CS is mail.cs.stonybrook.edu for both imap and
 <script>
   var disqus_shortname = 'piekill';
   
-  var disqus_url = 'http://piekill.github.io/2014/01/22/tips-for-setting-up-fedora/';
-  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//go.disqus.com/embed.js';
+    dsq.src = '//go.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
