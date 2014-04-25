@@ -114,9 +114,8 @@ fully-distributed mode requires several machines. Here we consider the
 procedure of installing in a pseudo-distributed mode, which basically follows 
 the instructions from the official document.</p>
 <ol>
-<li><strong>Configuration</strong></li>
-</ol>
-<p>Edit <code>etc/hadoop/core-site.xml</code>:</p>
+<li><p><strong>Configuration</strong></p>
+<p> Edit <code>etc/hadoop/core-site.xml</code>:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -131,7 +130,7 @@ the instructions from the official document.</p>
 <span class="tag">&lt;/<span class="title">configuration</span>&gt;</span>
 </pre></td></tr></table></figure>
 
-<p>Edit <code>etc/hadoop/hdfs-site.xml</code>:</p>
+<p> Edit <code>etc/hadoop/hdfs-site.xml</code>:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -145,9 +144,9 @@ the instructions from the official document.</p>
     <span class="tag">&lt;/<span class="title">property</span>&gt;</span>
 <span class="tag">&lt;/<span class="title">configuration</span>&gt;</span>
 </pre></td></tr></table></figure>
-
-<ol>
-<li><strong>Setup ssh connection without password</strong></li>
+</li>
+<li><p><strong>Setup ssh connection without password</strong></p>
+</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre>1
 2
@@ -157,11 +156,10 @@ the instructions from the official document.</p>
 <span class="variable">$ </span>chmod <span class="number">600</span> ~<span class="regexp">/.ssh/authorized</span>_keys
 </pre></td></tr></table></figure>
 
-<p>Edit <code>/etc/ssh/sshd_config</code>: change <code>PasswordAuthentication</code> to <code>no</code></p>
-<ol>
-<li><strong>Setup the environment</strong></li>
-</ol>
-<p>You can edit <code>etc/hadoop/hadoop-env.sh</code>, but here we choose to modify 
+<pre><code>Edit `/etc/ssh/sshd_config`: change `PasswordAuthentication` to `no`
+</code></pre><ol>
+<li><p><strong>Setup the environment</strong></p>
+<p> You can edit <code>etc/hadoop/hadoop-env.sh</code>, but here we choose to modify 
 <code>~/.bashrc</code> and add the following lines:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
@@ -173,24 +171,26 @@ the instructions from the official document.</p>
 <span class="keyword">export</span> HADOOP_OPTS=<span class="string">"-Djava.library.path=<span class="variable">$HADOOP_HOME</span>/lib"</span>
 </pre></td></tr></table></figure>
 
-<p>The <code>JAVA_HOME</code> for Fedora (JDK version 1.7.0) is something 
+<p> The <code>JAVA_HOME</code> for Fedora (JDK version 1.7.0) is something 
 like <code>/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.60-2.4.5.1.fc20.x86_64</code>.</p>
-<p>Don&#39;t forget to <code>source ~/.bashrc</code> after editing.</p>
-<ol>
-<li><strong>Execution and testing</strong></li>
-</ol>
-<p>(1). Format the filesystem:</p>
+<p> Don&#39;t forget to <code>source ~/.bashrc</code> after editing.</p>
+</li>
+<li><p><strong>Execution and testing</strong></p>
+<p> (1). Format the filesystem:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="variable">$ </span>bin/hdfs namenode -format
 </pre></td></tr></table></figure>
 
-<p>(2). Start namenode and datanode:</p>
+<p> (2). Start namenode and datanode:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="variable">$ </span>sbin/start-dfs.sh
 </pre></td></tr></table></figure>
 
-<p>(3). You can browse the web interface at <code>http://localhost:50070</code> by default.</p>
-<p>(4). Run some examples (see Hadoop docs for details).</p>
+<p> (3). You can browse the web interface at <code>http://localhost:50070</code> by 
+default.</p>
+<p> (4). Run some examples (see Hadoop docs for details).</p>
+</li>
+</ol>
 <h2 id="hadoop-in-eclipse">Hadoop in Eclipse</h2>
 <p>There are several ways of integrating Hadoop into Eclipse. We again choose the 
 easiest one: <a href="https://github.com/winghc/hadoop2x-eclipse-plugin">hadoop eclipse 
@@ -211,7 +211,7 @@ conf.set(<span class="string">"fs.defaultFS"</span>,<span class="string">"your_h
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://piekill.github.io/2014/04/24/setting-up-hadoop-(fedora-linux)/" data-id="dcj3a0n6ju1vgn4m" class="article-share-link">Share</a>
+      <a data-url="http://piekill.github.io/2014/04/24/setting-up-hadoop-(fedora-linux)/" data-id="wig79krm5tl7vsld" class="article-share-link">Share</a>
       
         <a href="http://piekill.github.io/2014/04/24/setting-up-hadoop-(fedora-linux)/#disqus_thread" class="article-comment-link">Comments</a>
       
