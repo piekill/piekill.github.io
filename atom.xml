@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Piekill]]></title>
+  <subtitle><![CDATA[It's Life]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://piekill.github.io/"/>
+  <updated>2014-04-26T03:35:43.920Z</updated>
+  <id>http://piekill.github.io/</id>
+  
+  <author>
+    <name><![CDATA[J Yang]]></name>
+    <email><![CDATA[yjx.jyang@gmail.com]]></email>
+  </author>
+  
+  <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[十年]]></title>
+    <link href="http://piekill.github.io/2014/04/24/%E5%8D%81%E5%B9%B4/"/>
+    <id>http://piekill.github.io/2014/04/24/十年/</id>
+    <published>2014-04-25T03:55:44.000Z</published>
+    <updated>2014-04-25T05:11:08.000Z</updated>
+    <content type="html"><![CDATA[<p>距离那场考试已经整整十年了。依稀还记得些奇怪的细节：考试后的细雨；特地找到某个考室却还是没确定里面坐的那位是否是多年不见的一位朋友，反而差点迟到了数学考试；语文
+的作文题“初中●高中“；午饭的鱼头；去往考场的长长的阶梯；当然还有年少轻狂的自己。</p>
+<p>那时候一起去考试的小伙伴们，都已渐渐没了联系。留在记忆里的，只剩下一串串名字和一张张稚气面孔。初中的往事大多已模糊，却还有些无法忘记的画面惹人感慨。正如现在每次
+踏上学校新建的人工草场时，都仿佛闻到了十年前第一次比赛时福州大学里草场一模一样的味道。</p>
+<p>还记得初中入学测试我帮忙出语文卷子却考得让人哭笑不得；</p>
+<p>还记得晚自习之后在家一边看天下足球一边写周记；</p>
+<p><a id="more"></a>
+还记得02年火热的世界杯之夏好多小伙伴加入了足球阵营；</p>
+<p>还记得自习课上谈笑风声被班主任拐弯抹角却巧妙地不留情面当众斥责；</p>
+<p>还记得和晓蓓、林晟为了一点小事笑了整整一晚的自习；</p>
+<p>还记得数学课上没理由地突然放声大笑搞得老师一脸怒气然后过了几分钟淡定地上黑板解题；</p>
+<p>还记得收到的匿名情书看着就是个恶作剧却还是心存感激；</p>
+<p>还记得踢球的小伙伴们和土场上挥洒过的汗水；也还记得我们的talking time。。。</p>
+<p>只是那时一起经历过这些的朋友，大概再也没有机会一起回忆这些了。</p>
+<p>细细想来，初中大概是我过的最后的真正无忧无虑最单纯的日子了吧。回想起来这段日子总是觉得快乐的，不像忆起高中总是希望小心翼翼地绕过不愿提及的种种遗憾。或许真的简单
+就是美好吧。</p>
+]]></content>
+    <summary type="html"><![CDATA[<p>距离那场考试已经整整十年了。依稀还记得些奇怪的细节：考试后的细雨；特地找到某个考室却还是没确定里面坐的那位是否是多年不见的一位朋友，反而差点迟到了数学考试；语文
+的作文题“初中●高中“；午饭的鱼头；去往考场的长长的阶梯；当然还有年少轻狂的自己。</p>
+<p>那时候一起去考试的小伙伴们，都已渐渐没了联系。留在记忆里的，只剩下一串串名字和一张张稚气面孔。初中的往事大多已模糊，却还有些无法忘记的画面惹人感慨。正如现在每次
+踏上学校新建的人工草场时，都仿佛闻到了十年前第一次比赛时福州大学里草场一模一样的味道。</p>
+<p>还记得初中入学测试我帮忙出语文卷子却考得让人哭笑不得；</p>
+<p>还记得晚自习之后在家一边看天下足球一边写周记；</p>
+<p>]]></summary>
+    
+      <category term="一中" scheme="http://piekill.github.io/tags/%E4%B8%80%E4%B8%AD/"/>
+    
+      <category term="胡思" scheme="http://piekill.github.io/tags/%E8%83%A1%E6%80%9D/"/>
+    
+      <category term="日志" scheme="http://piekill.github.io/categories/%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Setting up Hadoop (fedora-linux)]]></title>
+    <link href="http://piekill.github.io/2014/04/24/setting-up-hadoop-(fedora-linux)/"/>
+    <id>http://piekill.github.io/2014/04/24/setting-up-hadoop-(fedora-linux)/</id>
+    <published>2014-04-25T00:05:49.000Z</published>
+    <updated>2014-04-25T02:37:12.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="choose-your-way-of-installation">Choose your way of installation</h2>
+<p>There are actually two ways of installing Hadoop:</p>
+<ul>
+<li>Download source code and compile it;</li>
+<li>Download distribution and use it.</li>
+</ul>
+<p>The problem of the 2nd approach is that the pre-compiled distribution is a 
+32-bit version, and it generates a warning every time a command is executed 
+when running on a 64-bit machine. But generally you would get into much more 
+troubles if you try to compile from the source code. So here we use the 2nd 
+approach and just ignore the warnings. The distribution can be downloaded from 
+<a href="http://hadoop.apache.org" target="_blank">hadoop&#39;s website</a>. In case you want to access API 
+docs in an IDE such as eclipse, you can also download the source code and 
+attach it to appropriate packages.
+<a id="more"></a></p>
+<h2 id="hadoop-2-2-0-installation">Hadoop 2.2.0 installation</h2>
+<p>Installing Hadoop in a standalone mode is trivial, while installing in a 
+fully-distributed mode requires several machines. Here we consider the 
+procedure of installing in a pseudo-distributed mode, which basically follows 
+the instructions from the official document.</p>
+<ol>
+<li><p><strong>Configuration</strong></p>
+<p> Edit <code>etc/hadoop/core-site.xml</code>:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">configuration</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">property</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="title">name</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">value</span>&gt;</span>hdfs://localhost:9000<span class="tag">&lt;/<span class="title">value</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">property</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+<p> Edit <code>etc/hadoop/hdfs-site.xml</code>:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">configuration</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">property</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="title">name</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">value</span>&gt;</span>1<span class="tag">&lt;/<span class="title">value</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">property</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span>
+</pre></td></tr></table></figure>
+</li>
+<li><p><strong>Setup ssh connection without password</strong></p>
+<p> Edit <code>/etc/ssh/sshd_config</code>: change <code>PasswordAuthentication</code> to <code>no</code></p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="variable">$ </span>ssh-keygen -t dsa -<span class="constant">P</span> <span class="string">''</span> -f ~<span class="regexp">/.ssh/id</span>_dsa
+<span class="variable">$ </span>cat ~<span class="regexp">/.ssh/id</span>_dsa.pub &gt;&gt; ~<span class="regexp">/.ssh/authorized</span>_keys
+<span class="variable">$ </span>chmod <span class="number">600</span> ~<span class="regexp">/.ssh/authorized</span>_keys
+</pre></td></tr></table></figure>
+</li>
+<li><p><strong>Setup the environment</strong></p>
+<p> You can edit <code>etc/hadoop/hadoop-env.sh</code>, but here we choose to modify 
+<code>~/.bashrc</code> and add the following lines:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="keyword">export</span> JAVA_HOME=<span class="string">"your java installation location"</span>
+<span class="keyword">export</span> HADOOP_HOME=<span class="string">"your hadoop installation location"</span>
+<span class="keyword">export</span> HADOOP_COMMON_LIB_NATIVE_DIR=<span class="variable">$HADOOP_HOME</span>/lib/native
+<span class="keyword">export</span> HADOOP_OPTS=<span class="string">"-Djava.library.path=<span class="variable">$HADOOP_HOME</span>/lib"</span>
+</pre></td></tr></table></figure>
+
+<p> The <code>JAVA_HOME</code> for Fedora (JDK version 1.7.0) is something 
+like <code>/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.60-2.4.5.1.fc20.x86_64</code>.</p>
+<p> Don&#39;t forget to <code>source ~/.bashrc</code> after editing.</p>
+</li>
+<li><p><strong>Execution and testing</strong></p>
+<p> (1). Format the filesystem:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="variable">$ </span>bin/hdfs namenode -format
+</pre></td></tr></table></figure>
+
+<p> (2). Start namenode and datanode:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="variable">$ </span>sbin/start-dfs.sh
+</pre></td></tr></table></figure>
+
+<p> (3). You can browse the web interface at <code>http://localhost:50070</code> by 
+default.</p>
+<p> (4). Run some examples (see Hadoop docs for details).</p>
+</li>
+</ol>
+<h2 id="hadoop-in-eclipse">Hadoop in Eclipse</h2>
+<p>There are several ways of integrating Hadoop into Eclipse. We again choose the 
+easiest one: <a href="https://github.com/winghc/hadoop2x-eclipse-plugin">hadoop eclipse 
+plugin</a>. You can build from 
+the source or use the release version if you are working on Hadoop 2.2.0 and 
+Eclipse Kepler. Then you can simply create a new Map/Reduce Project in Eclipse, 
+add a Map/Reduce Location, and run examples such as WordCount. By default, the 
+input and output files locate on local filesystem. Modify the configuration as 
+follows to run it on HDFS:</p>
+<figure class="highlight Java"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>Configuration conf = <span class="keyword">new</span> Configuration();
+conf.set(<span class="string">"fs.defaultFS"</span>,<span class="string">"your_hdfs_location"</span>);
+</pre></td></tr></table></figure>
+
+<p>By default, <code>your_hdfs_location</code> is <code>hdfs://localhost:9000</code>.</p>
+]]></content>
+    <summary type="html"><![CDATA[<h2 id="choose-your-way-of-installation">Choose your way of installation</h2>
+<p>There are actually two ways of installing Hadoop:</p>
+<ul>
+<li>Download source code and compile it;</li>
+<li>Download distribution and use it.</li>
+</ul>
+<p>The problem of the 2nd approach is that the pre-compiled distribution is a 
+32-bit version, and it generates a warning every time a command is executed 
+when running on a 64-bit machine. But generally you would get into much more 
+troubles if you try to compile from the source code. So here we use the 2nd 
+approach and just ignore the warnings. The distribution can be downloaded from 
+<a href="http://hadoop.apache.org" target="_blank">hadoop&#39;s website</a>. In case you want to access API 
+docs in an IDE such as eclipse, you can also download the source code and 
+attach it to appropriate packages.
+]]></summary>
+    
+      <category term="Linux" scheme="http://piekill.github.io/tags/Linux/"/>
+    
+      <category term="Hadoop" scheme="http://piekill.github.io/tags/Hadoop/"/>
+    
+      <category term="Fedora" scheme="http://piekill.github.io/tags/Fedora/"/>
+    
+      <category term="Hadoop" scheme="http://piekill.github.io/categories/Hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Don't forget how to hexo]]></title>
+    <link href="http://piekill.github.io/2014/04/24/dont-forget-how-to-hexo/"/>
+    <id>http://piekill.github.io/2014/04/24/dont-forget-how-to-hexo/</id>
+    <published>2014-04-24T23:29:02.000Z</published>
+    <updated>2014-04-25T00:03:26.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="hexo">Hexo</h2>
+<ol>
+<li><p>Writing</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre> $ hexo <span class="keyword">new</span> [layout] &lt;title&gt;
+</pre></td></tr></table></figure>
+</li>
+<li><p>Generating</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="variable">$ </span>hexo generate
+</pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p><a id="more"></a></p>
+<ol>
+<li>Deployment <figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="variable">$ </span>hexo deploy
+</pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>Or deploy after generating</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ hexo <span class="keyword">generate</span> <span class="comment">--deploy</span>
+</pre></td></tr></table></figure>
+
+<h2 id="markdown">Markdown</h2>
+<ul>
+<li>&quot;#&quot;s: captions</li>
+<li>&quot; <em> &quot;and&quot; *</em> &quot;: italic and bold</li>
+<li>&quot; * &quot;,&quot; + &quot;, &quot; - &quot; or &quot;1,2,3...&quot;: lists</li>
+<li>&quot; ```language &quot;: code</li>
+<li>&quot; &#39; code &#39; &quot;: inline code</li>
+<li>&quot;Tags&quot; and &quot;Catagories&quot;</li>
+<li>&quot; \$ &quot; and &quot; $$ &quot;: latex math</li>
+<li>&quot;[text](link)&quot;: hyperlink</li>
+<li>&quot;>&quot;: text reference</li>
+</ul>
+]]></content>
+    <summary type="html"><![CDATA[<h2 id="hexo">Hexo</h2>
+<ol>
+<li><p>Writing</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre> $ hexo <span class="keyword">new</span> [layout] &lt;title&gt;
+</pre></td></tr></table></figure>
+</li>
+<li><p>Generating</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="variable">$ </span>hexo generate
+</pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>]]></summary>
+    
+      <category term="Hexo" scheme="http://piekill.github.io/tags/Hexo/"/>
+    
+      <category term="Hexo" scheme="http://piekill.github.io/categories/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Tips for Setting up Fedora]]></title>
+    <link href="http://piekill.github.io/2014/01/22/tips-for-setting-up-fedora/"/>
+    <id>http://piekill.github.io/2014/01/22/tips-for-setting-up-fedora/</id>
+    <published>2014-01-22T15:51:04.000Z</published>
+    <updated>2014-01-22T16:19:36.000Z</updated>
+    <content type="html"><![CDATA[<p>For Thunderbird:</p>
+<p>The server for my current mail in CS is <code>mail.cs.stonybrook.edu</code> for both <em>imap</em> and <em>smpt</em>. Ports are 993 and 587. Types of security are SSL/TLS and STARTTLS. Settings are the same for the university mail except that the servers becomes <code>smtp|imag.gmail.com</code>. Don&#39;t forget to use full address for the user name.
+<a id="more"></a></p>
+<p>For cude:</p>
+<p>Remember the <code>-override compiler</code> option when running the <em>run</em> file. RPM installation doesn&#39;t work for me very well since it replaces the current driver without asking me.</p>
+<p>A list of packages(software):</p>
+<ul>
+<li>matlab</li>
+<li>nvidia driver</li>
+<li>chrome</li>
+<li>kile</li>
+<li>thunderbird</li>
+<li>vim-enhanced</li>
+<li>icedtea</li>
+<li>rpm-fusion</li>
+<li>dropbox</li>
+<li>gcc-c++</li>
+<li>fcitx &amp; im-chooser</li>
+<li>node.js &amp; hexo</li>
+</ul>
+]]></content>
+    <summary type="html"><![CDATA[<p>For Thunderbird:</p>
+<p>The server for my current mail in CS is <code>mail.cs.stonybrook.edu</code> for both <em>imap</em> and <em>smpt</em>. Ports are 993 and 587. Types of security are SSL/TLS and STARTTLS. Settings are the same for the university mail except that the servers becomes <code>smtp|imag.gmail.com</code>. Don&#39;t forget to use full address for the user name.
+]]></summary>
+    
+      <category term="Fedora" scheme="http://piekill.github.io/tags/Fedora/"/>
+    
+      <category term="Linux" scheme="http://piekill.github.io/tags/Linux/"/>
+    
+      <category term="Linux Settings" scheme="http://piekill.github.io/categories/Linux%20Settings/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Install Nvidia driver on Linux(fedora)]]></title>
+    <link href="http://piekill.github.io/2014/01/22/install-nvidia-driver-on-linux(fedora)/"/>
+    <id>http://piekill.github.io/2014/01/22/install-nvidia-driver-on-linux(fedora)/</id>
+    <published>2014-01-22T15:16:44.000Z</published>
+    <updated>2014-01-22T21:38:38.000Z</updated>
+    <content type="html"><![CDATA[<p>Since <em>Nouveau</em> is typically used by default, the first thing to do after you download the driver from Nvidia is to disable Nouveau. This can be done by adding the following line to <code>/etc/modprobe.d/blacklist.conf</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>blacklist nouveau
+</pre></td></tr></table></figure>
+
+<p>However, you may have the Nouveau driver worked into your root filesystem (initramfs),
+<a id="more"></a>which happens in the current version of fedora. So you would like to remove this:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>sudo mv /boot/initramfs<span class="subst">-</span>$(uname <span class="attribute">-r</span>)<span class="built_in">.</span>img /boot/initramfs<span class="subst">-</span>$(uname <span class="attribute">-r</span>)<span class="attribute">-nouveau</span><span class="built_in">.</span>img
+sudo dracut /boot/initramfs<span class="subst">-</span>$(uname <span class="attribute">-r</span>)<span class="built_in">.</span>img $(uname <span class="attribute">-r</span>)
+</pre></td></tr></table></figure>
+
+<p>Also, don&#39;t forget to install some necessary packages including gcc, kernel-devel and kernel-headers.</p>
+<p>After reboot and kill the X server by <code>init 3</code>, you should be able to run the <em>run</em> file (Nvidia driver).</p>
+]]></content>
+    <summary type="html"><![CDATA[<p>Since <em>Nouveau</em> is typically used by default, the first thing to do after you download the driver from Nvidia is to disable Nouveau. This can be done by adding the following line to <code>/etc/modprobe.d/blacklist.conf</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>blacklist nouveau
+</pre></td></tr></table></figure>
+
+<p>However, you may have the Nouveau driver worked into your root filesystem (initramfs),
+]]></summary>
+    
+      <category term="Linux" scheme="http://piekill.github.io/tags/Linux/"/>
+    
+      <category term="Nvidia driver" scheme="http://piekill.github.io/tags/Nvidia%20driver/"/>
+    
+      <category term="Linux Settings" scheme="http://piekill.github.io/categories/Linux%20Settings/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[An old page for testing]]></title>
+    <link href="http://piekill.github.io/2014/01/21/an-old-page-for-testing/"/>
+    <id>http://piekill.github.io/2014/01/21/an-old-page-for-testing/</id>
+    <published>2014-01-22T03:46:09.000Z</published>
+    <updated>2014-01-22T03:47:31.000Z</updated>
+    <content type="html"><![CDATA[<p>Here we go. Just a test. Pls visit <a href="http://piekill-0213.appspot.com/piekill.html" target="_blank">Piekill</a>.</p>
+]]></content>
+    
+    
+  </entry>
+  
+</feed>
