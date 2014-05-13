@@ -4,7 +4,7 @@
   <subtitle><![CDATA[It's Life]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://piekill.github.io/"/>
-  <updated>2014-05-13T01:45:30.029Z</updated>
+  <updated>2014-05-13T01:46:26.244Z</updated>
   <id>http://piekill.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://piekill.github.io/2014/05/12/how-to-prepare-&-deliver-a-talk/"/>
     <id>http://piekill.github.io/2014/05/12/how-to-prepare-&-deliver-a-talk/</id>
     <published>2014-05-13T01:42:05.000Z</published>
-    <updated>2014-05-13T01:45:07.000Z</updated>
+    <updated>2014-05-13T01:46:21.000Z</updated>
     <content type="html"><![CDATA[<ul>
 <li>Nothing to do with your English. (?)</li>
 </ul>
@@ -32,10 +32,8 @@
 <li>Make your talk prefix-competitive</li>
 <li><em>Put your results up front</em></li>
 <li>Say what you did, why you did it, but not how you did it</li>
-<li><p>Give your results multiple times at different levels/granularities</p>
-</li>
-<li><p>Begin a talk: explain your title</p>
-</li>
+<li>Give your results multiple times at different levels/granularities<a id="more"></a></li>
+<li>Begin a talk: explain your title</li>
 <li>Show scholarship<ul>
 <li>how does your work fit into the rest of the world? (<em>Solved an 
 important open problem</em>)</li>
@@ -80,7 +78,19 @@ important open problem</em>)</li>
 <li>Don’t apologize</li>
 </ul>
 ]]></content>
-    
+    <summary type="html"><![CDATA[<ul>
+<li>Nothing to do with your English. (?)</li>
+</ul>
+<h2 id="structure-how-to-organize-your-talk">Structure: how to organize your talk</h2>
+<ul>
+<li>A single thesis statement<ul>
+<li>Everything supports your thesis</li>
+</ul>
+</li>
+<li>Make your talk prefix-competitive</li>
+<li><em>Put your results up front</em></li>
+<li>Say what you did, why you did it, but not how you did it</li>
+<li>Give your results multiple times at different levels/granularities]]></summary>
     
       <category term="Talk" scheme="http://piekill.github.io/tags/Talk/"/>
     
